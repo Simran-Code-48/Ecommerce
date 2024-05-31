@@ -29,7 +29,7 @@ const CartItems = () => {
 			<div className='flex justify-center'>
 				<button  onClick={() => {if(product.quantity>1){dispatch(updateQuantity({id:product.id, val:-1}))}}} className='text-2xl font-bold px-2'> - </button>
 				<p className="bg-gray-200 border-none px-2 py-1 rounded text-center cursor-default">{product.quantity}</p>
-				<button onClick={() => dispatch(updateQuantity({id:product.id, val:1}))} className='text-2xl font-bold px-2'> + </button>
+				<button onClick={() => dispatch(updateQuantity({id:product.id, stock:product.stock, val:1}))} className='text-2xl font-bold px-2'> + </button>
 			</div>
             <p className="text-center">{product.price * product.quantity}</p>
             <p onClick={() => dispatch(removeFromCart({id:product.id}))} className="text-center">X</p>
