@@ -2,7 +2,7 @@
 
 Welcome to the T-Shirt Store web application! This project aims to provide a simple and user-friendly platform for customers to explore, select, and purchase t-shirts online. Built with React frontend framework, Redux Toolkit for state management, and styled with Tailwind CSS, this application offers an intuitive browsing and shopping experience.
 
-#Application Link
+# Application Link
 https://ecommerce-lovat-zeta-82.vercel.app
 
 ## Features
