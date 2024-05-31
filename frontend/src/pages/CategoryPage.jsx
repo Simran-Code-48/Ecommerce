@@ -6,7 +6,7 @@ import Filter from '../components/Filter.jsx';
 
 const CategoryPage = ({category}) => {
 	const products = useSelector((state) => state.products.products);
-	console.log(products)
+	// console.log(products)
 	const [list, setList] = useState(products.filter((item) => category==='All' || item.category === category));
 
   return (

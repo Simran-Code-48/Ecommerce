@@ -1,26 +1,16 @@
 import React from 'react'
-import '../components/CSS/Product.css'
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { addToCart } from '../store/features/cartSlice';
 const Product = () => {
   const dispatch = useDispatch();
   const {productId} = useParams();
-  console.log({given:productId})
+  // console.log({given:productId})
   const details = useSelector((state) =>
     state.products.products.find((product) => product.id === Number(productId))
   );
-  console.log(details)
-	const product = {
-		name: 'Classic White Tee',
-    image: '',
-    color: 'White',
-		type: 'Crew Neck',
-		category: 'Men',
-		price: 15.99,
-		stock: 100,
-		id: 1
-	  }
+  // console.log(details)
+
     if (!product) {
       return <div>Loading...</div>; // or any other loading indicator
     }

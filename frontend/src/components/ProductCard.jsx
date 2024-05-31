@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './CSS/ProductCard.css'
 import { useSelector } from 'react-redux';
 
 const ProductCard = ({details}) => {

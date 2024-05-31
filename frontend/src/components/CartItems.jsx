@@ -52,7 +52,7 @@ const CartItems = () => {
             <h3>${total}</h3>
           </div>
         </div>
-        <button onClick={() =>{console.log(cartIds);dispatch(decreaseStock(cartIds)); dispatch(checkout())}} className="w-full py-3 bg-orange-400 text-white font-semibold rounded hover:bg-orange-700">PROCEED TO CHECKOUT</button>
+        <button onClick={() =>{;dispatch(decreaseStock(cartIds)); dispatch(checkout())}} className="w-full py-3 bg-orange-400 text-white font-semibold rounded hover:bg-orange-700">PROCEED TO CHECKOUT</button>
       </div>
     </div>
   );
