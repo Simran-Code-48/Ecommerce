@@ -41,7 +41,7 @@ const Product = () => {
         {
           (details.stock>0) ? <button onClick={() => {if(details.stock>0){dispatch(addToCart(details))}}}
           className="bg-orange-500 font-semibold text-white px-5 py-3 rounded-xl hover:shadow-lg hover:bg-orange-700">Add to Cart</button>
-          : <button 
+          : <button disabled
           className="bg-gray-700 font-semibold text-white px-5 py-3 rounded-xl">Sold Out</button>
         }
       </div>

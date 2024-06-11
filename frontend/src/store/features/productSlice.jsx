@@ -9,7 +9,7 @@ const initialState = {
 	  type: 'Crew Neck',
 	  category: 'Men',
 	  price: 15.99,
-	  stock: 100,
+	  stock: 0,
 	  id: 1
 	},
 	{

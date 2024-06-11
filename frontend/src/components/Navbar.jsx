@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 const Navbar = () => {
-    const [menu, setMenu] = useState('men');
+    const [menu, setMenu] = useState('shop');
     const cartItems = useSelector((state) => state.cart.items);
 
     return (

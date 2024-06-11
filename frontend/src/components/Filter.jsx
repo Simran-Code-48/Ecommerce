@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 
 const Filters = ({ list, setList }) => {
   const [open, setOpen] = useState(false);
-  const [colour, setColour] = useState('');
+  const [colour, setColour] = useState('all');
   const [priceRange, setPriceRange] = useState('');
-  const [type, setType] = useState('');
+  const [type, setType] = useState('all');
   const [sortOrder, setSortOrder] = useState('');
 
   const colors = [...new Set(list.map((product) => product.color))];
   const types = [...new Set(list.map((product) => product.type))];
+  const [stocks , setStocks] = useState('all');
 
   const handleFilterChange = () => {
     let filteredList = [...list];
@@ -24,6 +25,10 @@ const Filters = ({ list, setList }) => {
     }
     if (sortOrder !== '') {
       filteredList.sort((a, b) => (sortOrder === 'asc' ? a.price - b.price : b.price - a.price));
+    }
+    
+    if(stocks !== 'all'){
+      filteredList = filteredList.filter(item => stocks === 'instock' ? item.stock > 0 : item.stock === 0);
     }
     setList(filteredList);
     setOpen(!open);
@@ -118,20 +123,62 @@ const Filters = ({ list, setList }) => {
               />
               <label htmlFor="typeAll" className='text-lg'>All</label>
             </div>
-            {types.map((type) => (
-              <div key={type}>
+            {types.map((t) => (
+              <div key={t}>
                 <input
                   type="radio"
-                  id={`type${type}`}
+                  id={`type${t}`}
                   name="type"
-                  value={type}
-                  checked={type === type}
+                  value={t}
+                  checked={type === t}
                   onChange={(e) => setType(e.target.value)}
                   className="mr-1"
                 />
-                <label htmlFor={`type${type}`} className='text-lg'>{type}</label>
+                <label htmlFor={`type${t}`} className='text-lg'>{t}</label>
               </div>
             ))}
+          </div>
+        </div>
+
+        <div>
+          <label className='text-gray-500 text-lg font-semibold'>Stock:</label>
+          <div className='ml-4 mt-2 mb-5'>
+            <div>
+              <input
+                type="radio"
+                id={`stockAll`}
+                name="stock"
+                value='all'
+                checked={stocks === 'all'}
+                onChange={(e) => setStocks(e.target.value)}
+                className="mr-1"
+              />
+              <label htmlFor="typeAll" className='text-lg'>All</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                id={`inStock`}
+                name="stock"
+                value='instock'
+                checked={stocks === 'instock'}
+                onChange={(e) => setStocks(e.target.value)}
+                className="mr-1"
+              />
+              <label htmlFor="typeAll" className='text-lg'>In stock</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                id={`outOfStock`}
+                name="stock"
+                value='outofstock'
+                checked={stocks === 'outofstock'}
+                onChange={(e) => setStocks(e.target.value)}
+                className="mr-1"
+              />
+              <label htmlFor="typeAll" className='text-lg'>Out of stock</label>
+            </div>
           </div>
         </div>
 
